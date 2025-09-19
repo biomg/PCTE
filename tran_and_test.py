@@ -283,9 +283,9 @@ def Train_Test(ftumor, fnormal, feval_tumor, feval_normal, rate=0.33, n=100, STE
 
 
         mydata_train_12 = Mydata(Train_data, Train_label)
-        dataloader_train_12 = DataLoader(dataset=mydata_train_12, batch_size=200, shuffle=True)
+        dataloader_train_12 = DataLoader(dataset=mydata_train_12, batch_size=2000, shuffle=True)
         mydata_test_12 = Mydata(Eval_data, Eval_label)
-        dataloader_test_12 = DataLoader(dataset=mydata_test_12, batch_size=200, shuffle=True)
+        dataloader_test_12 = DataLoader(dataset=mydata_test_12, batch_size=2000, shuffle=True)
         model = PCTE()
         model = model.cuda()
 
@@ -357,4 +357,5 @@ def Train_Test(ftumor, fnormal, feval_tumor, feval_normal, rate=0.33, n=100, STE
 
 
 Train_Test(ftumor='TrainingData/CancerTrain.txt', n=10, feval_tumor='TrainingData/CancerEval.txt',
+
            feval_normal='TrainingData/ControlEval.txt', STEPs=20000, rate=0.33, fnormal='TrainingData/ControlTrain.txt')
